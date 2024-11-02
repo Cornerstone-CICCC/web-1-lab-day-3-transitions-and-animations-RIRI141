@@ -18,6 +18,195 @@ body {
     justify-content: center;
     align-items: center;
     border: 1px solid #333;
+
+    #btn1 {
+      color: #fff;
+      background-color: #000;
+      border: 1px solid #000;
+
+      &:hover {
+        animation: btn-1-move .8s ease-in-out 1;
+      }
+    }
+
+    @keyframes btn-1-move {
+      0% {
+        color: white;
+        background-color: black;
+        box-shadow: 0 0 black;
+        transform: translate(0, 0);
+      }
+      100% {
+        color: black;
+        background-color: white;
+        box-shadow: 10px 10px  black;
+        transform: translate(-10px, -10px);
+      }
+    }
+
+    #btn2 {
+      color: white;
+      background-color: black;
+      transition: all .8s ease-in-out;
+      transform: translate(0px, 0px);
+      border: 1px solid black;
+
+      &:hover {
+        color: black;
+        background-color: white;
+        transform: translate(-10px, -10px);
+      }
+    }
+  }
+
+  div:nth-child(2) {
+    background: linear-gradient(to right, white 0%, black 0%, black 100%, white 100%);
+    background-size: 152.06px 46.5px; /* 控制漸層的大小 */
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  // btn3
+  #btn3 {
+    border: 1px solid black;
+    color: white;
+    transition: all .5s ease-in-out ;
+    background: linear-gradient(
+                    135deg,
+                    green 0%,
+                    green 50%,
+                    white 50%,
+                    white 53%,
+                    green 53%,
+                    green 100%
+    );
+    background-size: 200% 100%;
+    background-position: 150% 0;
+    background-repeat: repeat;
+    opacity: 1;
+
+    &:hover {
+      background-position: -80% 0;
+      opacity: 0.8;
+    }
+  }
+
+  #shape1 {
+    height: 200px;
+    width: 200px;
+    background-color: #cccccc;
+    transition: all .5s ease-in-out;
+
+    &::after {
+      content: 'Hello!';
+      font-weight: bolder;
+      position: absolute;
+      top: 45%;
+      left: 45%;
+      opacity: 0;
+      transition: all .5s ease-in-out;
+    }
+
+    &:hover {
+      background-color: yellow;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  div:nth-child(2) {
+    position: relative;
+  }
+
+  #shape2 {
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    border-radius: 0;
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+    animation: shape2-move 5s ease-in-out infinite;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  @keyframes shape2-move {
+    0%, 100% { // square
+      background-color: red;
+      clip-path: polygon(0 0, 0 0, 100% 0, 100% 100%, 0 100%);
+      border-radius: 0;
+
+      top: 0;
+      left: 0;
+    }
+    1% {
+      background-color: red;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      border-radius: 0;
+    }
+    25% { // circle
+      background-color: green;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      border-radius: 50%;
+
+      top: 0;
+      left: calc(100% - 100px);
+    }
+    50% { // tri
+      background-color: #B09A00;
+      clip-path: polygon(50% 0%, 50% 0%, 100% 100%, 0% 100%);
+      border-radius: 0;
+
+      top: calc(100% - 100px);
+      left: calc(100% - 100px);
+    }
+    51% {
+      background-color: #B09A00;
+      clip-path: polygon(50% 0%, 100% 100%, 100% 100%, 100% 100%, 0% 100%);
+      border-radius: 0;
+    }
+    75% { // pantago
+      background-color: #FFA301;
+      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+      border-radius: 0;
+
+      top: calc(100% - 100px);
+      left: 0;
+    }
+  }
+
+  #figure1 {
+    position: relative;
+
+    img {
+      z-index: 1;
+      filter: grayscale(0%);
+      transition: all .5s ease-in-out;
+
+      &:hover {
+        filter: grayscale(100%);
+      }
+    }
+
+    figcaption {
+      z-index: -1;
+      background-color: pink; /* 粉色背景 */
+      padding: 10px;
+      width: 250px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: all .5s ease-in-out;
+    }
+
+    &:hover {
+      figcaption {
+        top: 165px;
+      }
+    }
   }
 
   button {
